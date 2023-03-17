@@ -1,5 +1,5 @@
 # NixWeatherC
-Astro-simple and ultra-light C application fetching weather informations.
+Stop doing things with C++. C++ is trash. This an astro-simple and ultra-light C application fetching weather informations.
 Ideal on embedded systems.
 
 ### Weather information
