@@ -1,12 +1,12 @@
 #include "weather.h"
 
-// Structure
+// Local structure
 typedef struct {
 	uint32_t length;
 	char *ptr;
 } weather_string_t;
 
-// Fonction de generation d'un url en fonction des parametres
+// Function generating an url, depending on parameters
 void weather_url(char *url, const weather_params_t *wp) {
     snprintf(url, WEATHER_URLL, WEATHER_URL, wp->lat, wp->lon, WEATHER_NDAYS);
     if(wp->flags & WEATHER_F_TEMP_F) strcat(url, WEATHER_P_TEMP_F);
@@ -18,7 +18,7 @@ void weather_url(char *url, const weather_params_t *wp) {
     if(wp->flags & WEATHER_M_PREC) strcat(url, WEATHER_P_PREC_IN);
 }
 
-// Fonction d'ecriture pour curl
+// Write function for curl
 static size_t weather_write(void *ptr, size_t size, size_t nmemb, weather_string_t *string) {
 	size_t block = size * nmemb;
 	if(!block) return 0;
@@ -72,7 +72,7 @@ void weather_print(weather_t *wt) {
     for(uint32_t i = 0; i < WEATHER_NDAYS; i++) weather_print_day(&(wt->days[i]));
 }
 
-// Fonction de recuperation des donnees meteorologiques
+// Function getting weather data
 uint8_t weather_get(weather_t *w, const char *url) {
     weather_string_t string = { .length = 0, .ptr = NULL };
     CURL *curl = curl_easy_init();

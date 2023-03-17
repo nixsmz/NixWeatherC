@@ -1,7 +1,7 @@
 #ifndef _WEATHER_H_
 #define _WEATHER_H_
 
-// Libriaries
+// Libraries
 #include "../json/json.h"
 #include <curl/curl.h>
 
@@ -86,7 +86,7 @@ typedef struct {
     weather_day_t days[WEATHER_NDAYS];
 } weather_t;
 
-// Fonctions prototypes
+// Functions
 void        weather_url(char *url, const weather_params_t *wp);
 uint8_t     weather_get(weather_t *w, const char *url);
 void        weather_print(weather_t *wt);
