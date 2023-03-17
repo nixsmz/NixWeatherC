@@ -1,5 +1,6 @@
 # NixWeatherC
-Astro-simple C application printing weather informations.
+Astro-simple and ultra-light C application fetching weather informations.
+Ideal on embedded systems.
 
 ### Weather information
 The program is using `curl` to fetch weather informations, as a `json` format.
