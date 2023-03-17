@@ -1,5 +1,5 @@
 # NixWeatherC
-Dummy C application printing weather informations.
+Astro-simple C application printing weather informations.
 
 ### Weather information
 The program is using `curl` to fetch weather informations, as a `json` format.
