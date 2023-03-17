@@ -7,17 +7,6 @@
 */
 #include "json.h"
 
-#define TEXT    "{\"latitude\":46.2,\"longitude\":6.1599994,\"generationtime_ms\":1.5770196914672852," \
-                "\"utc_offset_seconds\":3600,\"timezone\":\"Europe/Zurich\"," \
-                "\"timezone_abbreviation\":\"CET\",\"elevation\":392.0,\"daily\":{\"time\":[1679007600," \
-                "1679094000,1679180400,1679266800,1679353200,1679439600,1679526000],\"weathercode\":[45," \
-                "80,80,2,3,61,80],\"temperature_2m_max\":[17.0,14.8,13.1,15.0,17.5,16.3,11.2]," \
-                "\"temperature_2m_min\":[1.3,2.1,7.2,3.4,5.2,8.3,8.9],\"sunrise\":[1679031781,1679118064," \
-                "1679204348,1679290631,1679376914,1679463198,1679549481],\"sunset\":[1679075073," \
-                "1679161555,1679248037,1679334518,1679421000,1679507481,1679593961]," \
-                "\"precipitation_sum\":[0.00,0.30,4.30,0.00,0.00,0.90,15.30],\"windspeed_10m_max\":[18.8," \
-                "12.3,14.9,8.1,20.4,25.2,10.9],\"winddirection_10m_dominant\":[216,219,205,89,216,232,254]}}"
-
 static char* json_next_char(char *json) {
     char *ptr = json;
     for(; strchr("\t\n ", ptr[0]); ptr++);
