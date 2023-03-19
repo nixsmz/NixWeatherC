@@ -40,12 +40,18 @@
 
 #define WEATHER_F_NONE      (0)
 
+#define WEATHER_CONDFILE    "conditions.txt"
+#define WEATHER_CONDSEP     ";\n\r\t"
+#define WEATHER_CONDL       (64+3)
+
 #define W_PRMS(x,y,f)       ((weather_params_t){ .lat=x, .lon=y, .flags=f })
 #define W_PPRMS(x,y,f)      (&(W_PRMS(x,y,f)))
 
 // #define WEATHER_DEBUG
 
 // Stuctures
+typedef uint8_t weathercode_t;
+
 typedef struct {
     char lat[16];
     char lon[16];
@@ -58,14 +64,14 @@ typedef struct {
     uint8_t hum;
     uint8_t prob;
     float prec;
-    uint8_t wco;
+    weathercode_t wco;
     float ws;
     uint16_t wd;
 } weather_hour_t;
 
 typedef struct {
     time_t time;
-    uint8_t wco;
+    weathercode_t wco;
     float tmax;
     float tmin;
     time_t sunrise;
@@ -90,5 +96,7 @@ typedef struct {
 void        weather_url(char *url, const weather_params_t *wp);
 uint8_t     weather_get(weather_t *w, const char *url);
 void        weather_print(weather_t *wt);
+
+uint8_t     weather_conditions(char __attribute__((unused)) *buffer, weathercode_t code);
 
 #endif

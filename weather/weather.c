@@ -163,3 +163,19 @@ uint8_t weather_get(weather_t *w, const char *url) {
     curl_easy_cleanup(curl);
     return 0;
 }
+
+// Function getting weather conditions
+uint8_t weather_conditions(char *buffer, weathercode_t code) {
+    FILE *f = fopen(WEATHER_CONDFILE, "r");
+    if(!f) return -1;
+    char *token, temp[WEATHER_CONDL];
+    while(fgets(temp, WEATHER_CONDL, f)) {
+        token = strtok(temp, WEATHER_CONDSEP);
+        if(atoi(token) == code) {
+            strncpy(buffer, strtok(NULL, WEATHER_CONDSEP), WEATHER_CONDL);
+            return 0;
+        }
+    }
+    fclose(f);
+    return -1;
+}
