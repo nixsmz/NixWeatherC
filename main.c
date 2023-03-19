@@ -16,9 +16,10 @@ int main() {
         return 1;
     }
     weather_print(&wt);
+    
     char condition[WEATHER_CONDL];
-    weather_conditions(condition, wt.days[0].wco);
-    printf("Today's conditions: %s\n", condition);
+    if(!weather_conditions(condition, wt.days[0].wco))
+        printf("Today's conditions: %s\n", condition);
 
     return 0;
 }
