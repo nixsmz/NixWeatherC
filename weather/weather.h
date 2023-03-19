@@ -96,7 +96,6 @@ typedef struct {
 void        weather_url(char *url, const weather_params_t *wp);
 uint8_t     weather_get(weather_t *w, const char *url);
 void        weather_print(weather_t *wt);
-
-uint8_t     weather_conditions(char __attribute__((unused)) *buffer, weathercode_t code);
+uint8_t     weather_conditions(char *buffer, weathercode_t code);
 
 #endif
